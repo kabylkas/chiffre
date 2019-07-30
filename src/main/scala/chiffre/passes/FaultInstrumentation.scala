@@ -87,7 +87,7 @@ class FaultInstrumentation(compMap: Map[String, Seq[(ComponentName, String, Clas
 
     val options = new ExecutionOptionsManager("Fault Instrumentation Inline") with HasFirrtlOptions
         with chisel3.HasChiselExecutionOptions {
-      chiselOptions = new chisel3.ChiselExecutionOptions(runFirrtlCompiler = false )
+      chiselOptions = new chisel3.ChiselExecutionOptions(runFirrtlCompiler = false,  printFullStackTrace = false )
     }
     val (chirrtl: Circuit, inlineAnnos: AnnotationSeq) = chisel3.Driver.execute(options, gen) match {
       case chisel3.ChiselExecutionSuccess(Some(chisel3.internal.firrtl.Circuit(_,_,annos)),ast,_) =>

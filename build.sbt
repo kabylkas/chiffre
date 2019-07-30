@@ -28,19 +28,19 @@ organization := "com.ibm"
 name := "chiffre"
 version := "0.1-SNAPSHOT"
 scalacOptions := Seq("-deprecation", "-feature") ++ scalacOptionsVersion(scalaVersion.value)
-scalaVersion := "2.12.4"
+scalaVersion := "2.12.8"
 crossScalaVersions := Seq("2.11.12", "2.12.4")
+/* Assembly  
 libraryDependencies += "com.github.scopt" %% "scopt" % "3.6.0"
 libraryDependencies += "org.json4s" %% "json4s-native" % "3.5.3"
 
-/* Assembly */
 assemblyJarName in assembly := "chiffre.jar"
 test in assembly := {}
-assemblyOutputPath in assembly := file("utils/bin/chiffre.jar")
+assemblyOutputPath in assembly := file("./utils/bin/chiffre.jar")
 
-val defaultVersions = Map("chisel3" -> "3.1.+",
+val defaultVersions = Map("chisel3" -> "3.1.8",
                           "chisel-iotesters" -> "1.2.+",
                           "firrtl"  -> "1.1.+" )
 
 libraryDependencies ++= defaultVersions.map{ case (k, v) =>
-  "edu.berkeley.cs" %% k % sys.props.getOrElse(k + "Version", v) }.toSeq
+  "edu.berkeley.cs" %% k % sys.props.getOrElse(k + "Version", v) }.toSeq */
