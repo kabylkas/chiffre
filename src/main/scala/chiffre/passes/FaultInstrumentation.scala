@@ -179,8 +179,8 @@ class FaultInstrumentation(compMap: Map[String, Seq[(ComponentName, String, Clas
                 SinkAnnotation(scanEn, "scan_en"),
                 SinkAnnotation(scanClk, "scan_clk"),
                 ScanChainInjectorAnnotation(comp, id, injector.name),
-                ScanChainAnnotation(scanIn, "slave", "in", id, Some(comp)),
-                ScanChainAnnotation(scanOut, "slave", "out", id, Some(comp))
+                ScanChainAnnotation(scanIn, "slave", "in", id, Some(comp))
+                //ScanChainAnnotation(scanOut, "slave", "out", id, Some(comp))
               ),
               renames = x.renames ++ Map(comp.name -> rename)
             )

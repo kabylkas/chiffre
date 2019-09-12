@@ -149,7 +149,7 @@ class ScanChainTransform extends Transform {
 
         val ax = s.foldLeft(Seq[Annotation]()){ case (a, (name, v)) =>
           val masterIn = v.masterScan.copy(name=v.masterScan.name + ".in")
-          val masterOut = v.masterScan.copy(name=v.masterScan.name + ".out")
+          //val masterOut = v.masterScan.copy(name=v.masterScan.name + ".out")
           val masterClk = v.masterScan.copy(name=v.masterScan.name + ".clk")
           val masterEn = v.masterScan.copy(name=v.masterScan.name + ".en")
 
@@ -158,6 +158,7 @@ class ScanChainTransform extends Transform {
             SourceAnnotation(masterEn, "scan_en"))
 
           // [todo] This is not deterministic
+          /*
           val chain: Seq[ComponentName] = masterOut +: v.injectors
             .flatMap{ case (k, _) => Seq(v.slaveIn(k), v.slaveOut(k)) }
             .toSeq :+ masterIn
@@ -167,11 +168,12 @@ class ScanChainTransform extends Transform {
             .flatMap{ case (Seq(l, r), i) =>
               Seq(SourceAnnotation(l, s"scan_${name}_$i"),
                   SinkAnnotation(r, s"scan_${name}_$i")) }
-
-          a ++ masterAnnotations ++ annotations
+*/
+          //a ++ masterAnnotations ++ annotations
+          a ++ masterAnnotations
         }
 
-        state.copy(annotations = ((state.annotations.toSeq ++ ax).toSet -- myAnnos.toSet).toSeq)
+        state.copy(annotations = ((state.annotations.toSeq ++ ax).toSet -- myAnnos.toSet).toSeq) 
     }
   }
 }

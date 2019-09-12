@@ -60,3 +60,55 @@ trait ChiffreInjectee { this: BaseModule =>
       })
   }
 }
+
+// chiffre fault controller
+class FaultController(val scanId: String) extends Module with ChiffreController {
+  val io = IO(new Bundle{})
+
+  val local_clk = Reg(Bool())
+  local_clk := ~local_clk
+
+  scan.clk := local_clk
+  scan.en := 1.U
+  scan.out := 0.U
+  scan.in := 0.U
+}
+
+// chiffre fault controller
+class FaultController2(val scanId: String) extends Module with ChiffreController {
+  val io = IO(new Bundle{})
+
+  val local_clk = Reg(Bool())
+  local_clk := ~local_clk
+
+  scan.clk := local_clk
+  scan.en := 1.U
+  scan.out := 0.U
+  scan.in := 0.U
+}
+
+// chiffre fault controller
+class FaultController3(val scanId: String) extends Module with ChiffreController {
+  val io = IO(new Bundle{})
+
+  val local_clk = Reg(Bool())
+  local_clk := ~local_clk
+
+  scan.clk := local_clk
+  scan.en := 1.U
+  scan.out := 0.U
+  scan.in := 0.U
+}
+
+// chiffre fault controller
+class FaultController4(val scanId: String) extends Module with ChiffreController {
+  val io = IO(new Bundle{})
+
+  val local_clk = Reg(Bool())
+  local_clk := ~local_clk
+
+  scan.clk := local_clk
+  scan.en := 1.U
+  scan.out := 0.U
+  scan.in := 0.U
+}
